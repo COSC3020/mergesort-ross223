@@ -15,3 +15,12 @@ part of the array each recursive call considers.
 Analyse the time complexity of your implementation and give a $\Theta$ bound for
 its worst-case runtime. Add your answer, including your reasoning, to this
 markdown file.
+
+The outer loop divides the array into subarrays of double the size of the previous
+subarrays until sizes of 1 are achieved making for a runtime of O(log(n)).
+
+The inner loop runs over the whole array each time the outer loop happens resulting
+in a runtime of O(n).
+
+Therefore for an unsorted array, the worst case scenerio is O(nlog(n)) which means
+a tight bound is $\Theta (nlog(n))$
