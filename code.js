@@ -14,7 +14,7 @@ function mergesort(array) {
 }
 
 function merge(array, start, mid, end){
-    var lefthalf = array.slice(start, mid + 1);
+    var lefthalf = array.slice(start, mid + 1); // Used https://www.w3schools.com/jsref/jsref_slice_array.asp for some clarification on slice arguments
     var righthalf = array.slice(mid + 1, end + 1);
     var i = 0;
     var j = 0;
