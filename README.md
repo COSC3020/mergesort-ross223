@@ -16,11 +16,20 @@ Analyse the time complexity of your implementation and give a $\Theta$ bound for
 its worst-case runtime. Add your answer, including your reasoning, to this
 markdown file.
 
-The outer loop divides the array into subarrays of double the size of the previous
-subarrays until sizes of 1 are achieved making for a runtime of O(log(n)).
+This implementationg of merge sort has 3 compnents:
+Outer for loop, inner for loop, and merge.
 
-The inner loop runs over the whole array each time the outer loop happens resulting
-in a runtime of O(n).
+The outer for loop runs while size < the array length, and since size is double each time,
+this is reminicent of log(n).
+
+The inner for loop runs while start < the array length, and start is incremented by
+2 times size each iteration so in the worst case this runs n/2 times.
+
+The final piece is merge which has 2 loops. The while loop runs while i <= mid and 
+j <= end. Since we are looking at the worst case scenerio, we need the inner loop 
+to run as many times as possible so this loop will run when j <= end, so n/2 times.
+The inner loop will run when 
+
 
 Therefore for an unsorted array, the worst case scenerio is O(nlog(n)) which means
 a tight bound is $\Theta (nlog(n))$
