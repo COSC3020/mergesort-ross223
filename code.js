@@ -3,7 +3,7 @@ function mergesort(array) {
         return array;
     } else {
         for (var size = 1; size < array.length; size = 2 * size){ // Used Chat GPT for help with these for loops
-            for (var start = 0; start + size - 1 < array.length - 1; start += 2 * size){
+            for (var start = size; start < array.length; start += 2 * size){
                 var mid = Math.min(start + size - 1, array.length - 1); // Used https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min for help with understanding Math.min()
                 var end = Math.min(start + 2 * size - 1, array.length - 1);
                 merge(array, start, mid, end);
