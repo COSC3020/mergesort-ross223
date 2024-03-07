@@ -13,30 +13,21 @@ function mergesort(array) {
     return array;
 }
 
-function merge(array, start, mid, end){
-    var lefthalf = array.slice(start, mid + 1); // Used https://www.w3schools.com/jsref/jsref_slice_array.asp for some clarification on slice arguments
-    var righthalf = array.slice(mid + 1, end + 1);
-    var i = 0;
-    var j = 0;
-    var k = start;
-    while (i < lefthalf.length && j < righthalf.length){
-        if (lefthalf[i] <= righthalf[j]){
-            array[k] = lefthalf[i];
+function merge(array, start, mid, end){ // Used Chat GPT and help from howardthegr8one-1 for this loop
+    var i = start;
+    var j = mid + 1;
+    while (i <= mid && j <= end){
+        if (array[i] <= array[j]){
             i++;
         } else {
-            array[k] = righthalf[j];
+            var value = array[j];
+            var k;
+            for (k = j; k > i; k--){
+                array[k] = array[k - 1];
+            }
+            array[i] = value;
+            mid++;
             j++;
         }
-        k++;
-    }
-    while (i < lefthalf.length){
-        array[k] = lefthalf[i];
-        i++;
-        k++;
-    }
-    while (j < righthalf.length){
-        array[k] = righthalf[j];
-        j++;
-        k++;
     }
 }
