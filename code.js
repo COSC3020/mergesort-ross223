@@ -1,33 +1,37 @@
 function mergesort(array) {
-    if (array.length <= 1){
+    var length = array.length;
+    var first = true;
+    var j;
+    var i;
+    if (length <= 1) {
         return array;
     } else {
-        for (var size = 1; size < array.length; size = 2 * size){ // Used Chat GPT for help with these for loops
-            for (var start = size; start < array.length; start += 2 * size){
-                var mid = Math.min(start + size - 1, array.length - 1); // Used https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min for help with understanding Math.min()
-                var end = Math.min(start + 2 * size - 1, array.length - 1);
-                merge(array, start, mid, end);
+        for (var size = 1; size < length; size = 2 * size) { // These loops were written by me but ZachRenz helped me understand how to write them
+            j = size;
+            if (first){
+                j = 1;
+                first = false;
+            } 
+            i = 0;
+            while (j < length) {
+                merge(i, j, size, array);
+                i += 2 * size;
+                j += 2 * size;
             }
         }
     }
     return array;
 }
 
-function merge(array, start, mid, end){ // Used Chat GPT and help from howardthegr8one-1 for this loop
-    var i = start;
-    var j = mid + 1;
-    while (i <= mid && j <= end){
-        if (array[i] <= array[j]){
+function merge(i, j, size, array) { // This merge function was also written by me minus the for loop
+    while (i < j) {
+        if (array[i] <= array[j]) {
             i++;
         } else {
-            var value = array[j];
-            var k;
-            for (k = j; k > i; k--){
-                array[k] = array[k - 1];
+            for (var k = j + 1; k <= (j - 1 + size) && array[k] < array[i]; k++) { // Chat GPT helped me with getting this specifc piece of logic to get the rest of the code working
             }
-            array[i] = value;
-            mid++;
-            j++;
+            k--;
+            [array[i], array[k]] = [array[k], array[i]] // Used https://www.freecodecamp.org/news/swap-two-array-elements-in-javascript/ for help with swaping elements in an array
         }
     }
 }
