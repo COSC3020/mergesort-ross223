@@ -17,19 +17,23 @@ its worst-case runtime. Add your answer, including your reasoning, to this
 markdown file.
 
 This implementationg of merge sort has 3 compnents:
-Outer for loop, inner for loop, and merge.
+Outer for loop, inner while loop, and merge.
 
-The outer for loop runs while size < the array length, and since size is double each time,
-this is reminicent of log(n).
+Since the merge function contains a in essence a loop we can analyze the worst case scenerio
+by using loop logic. Ex: a loop inside a loop is equivilant to n*n.
 
-The inner for loop runs while start < the array length, and start is incremented by
-2 times size each iteration so in the worst case this runs n/2 times.
+The outer for loop runs while size < the array length, and the inner while loop runs when j < the array length.
+Since size is doubled each iteration and j is incremented by size, these loops are reminicent of an exponential,
+which results in log(n) run time.
 
-The final piece is merge which has 2 loops. The while loop runs while i <= mid and 
-j <= end. Since we are looking at the worst case scenerio, we need the inner loop 
-to run as many times as possible so this loop will run when j <= end, so n/2 times.
-The inner loop will run when 
+The final piece is merge which has 2 loops. The outer while loop runs while i is less then j or
+essentially n/size times as it runs once for each array needing to be "merged". As we are analyzing the worst case
+scenerio, the inner loop will run essentially every time as no elements are sorted in our array. This results
+in the inner for loop running as long as k <= size + j - 1 and since k is incremented by 1 each time, it will run
+size + j - 1 times. Size and j are both elements of O(n) so this loop will run O(n) times in the wost case.
+
+Now we multiply our run times together to get the wost case which results in $\Theta (n^2log(n))$ as our
+worst case runtime.
 
 
-Therefore for an unsorted array, the worst case scenerio is O(nlog(n)) which means
-a tight bound is $\Theta (nlog(n))$
+
