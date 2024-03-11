@@ -22,9 +22,11 @@ Outer for loop, inner while loop, and merge.
 Since the merge function contains a in essence a loop we can analyze the worst case scenerio
 by using loop logic. Ex: a loop inside a loop is equivilant to n*n.
 
-The outer for loop runs while size < the array length, and the inner while loop runs when j < the array length.
-Since size is doubled each iteration and j is incremented by size, these loops are reminicent of an exponential,
-which results in log(n) run time.
+The outer for loop runs while size < the array length and since size is doubled each iteration and this loop 
+is reminicent of an exponential, which results in log(n) run time.
+
+The inner while loop run while j < the array length and will happen length/2*size times,
+which results in n runtime.
 
 The final piece is merge which has 2 loops. The outer while loop runs while i is less then j or
 essentially n/size times as it runs once for each array needing to be "merged". As we are analyzing the worst case
@@ -32,7 +34,7 @@ scenerio, the inner loop will run essentially every time as no elements are sort
 in the inner for loop running as long as k <= size + j - 1 and since k is incremented by 1 each time, it will run
 size + j - 1 times. Size and j are both elements of O(n) so this loop will run O(n) times in the wost case.
 
-Now we multiply our run times together to get the wost case which results in $\Theta (n^2log(n))$ as our
+Now we multiply our run times together to get the wost case which results in $\Theta (n^3log(n))$ as our
 worst case runtime.
 
 
