@@ -36,7 +36,7 @@ needing to be "merged". This results in a runtime of n.
 As we are analyzing the worst case scenerio, the inner for loop will run essentially every time as no elements 
 are sorted in our array. This results in the inner for loop running as long as k <= size + j - 1 and since k 
 is incremented by 1 each time, it will run size + j - 1 times. Since both of these variables are bounded by
-the size of the array as determined by the previous loops, this loop will runtime of n as well.
+the size of the array as determined by the previous loop conditions, this loop will have a runtime of n as well.
 
 This means that in the worst case the merge function runs n^2 times, as we multiply the loops together.
 
