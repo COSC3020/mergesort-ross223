@@ -22,13 +22,14 @@ Outer for loop, inner while loop, and the merge function.
 Since the merge function, in essence, contains a loop, we can analyze the worst case scenerio
 by using loop logic. Ex: a loop inside a loop is equivilant to n*n.
 
-The outer for loop runs while size < the array length and since size is doubled each iteration and this loop 
+The outer for loop runs while size < the array length and since size is doubled each iteration, this loop 
 is reminicent of an exponential, which results in log(n) run time.
 
 The inner while loop runs while j < the array length and will happen length/2*size times,
 which results in n runtime. Therefore these loops have a runtime of nlog(n) as we multiply them together.
 
-The final piece is the merge function which has 2 loops: the outer while loop and the inner for loop.
+The final piece is the merge function which has 2 loops: the outer while loop and the inner for loop. So similarly
+to the previous loops we can analyze the worst case scenerio using loop logic.
 
 The outer while loop runs while i is less then j or essentially n/size times as it runs once for each array 
 needing to be "merged". This results in a runtime of n.
@@ -40,8 +41,8 @@ the size of the array as determined by the previous loop conditions, this loop w
 
 This means that in the worst case the merge function runs n^2 times, as we multiply the loops together.
 
-Now we multiply the merge function with the outer loops, since it is in essense a loop inside a loop, resulting in a 
-total runtime of $\Theta (n^3log(n))$
+Now we multiply the merge function with the outer loops, since it is in essense a loop inside a loop, so we can
+use loop logic again. This results in a final runtime analysis of $\Theta (n^3log(n))$
 
 
 
