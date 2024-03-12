@@ -35,7 +35,8 @@ in the inner for loop running as long as k <= size + j - 1 and since k is increm
 size + j - 1 times. Size and j are both elements of O(n) so this loop will run O(n) times in the wost case. This
 means that in the worst case the merge function runs n^2 times, as we multiply the loops together.
 
-Now we multiply the merge function with the outer loops, resulting in a total runtime of $\Theta (n^3log(n))$
+Now we multiply the merge function with the outer loops, since it is in essense a loop as well, resulting in a 
+total runtime of $\Theta (n^3log(n))$
 
 
 
