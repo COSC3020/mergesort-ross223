@@ -42,5 +42,8 @@ This means that in the worst case the merge function runs n^2 times, as we multi
 Now we multiply the merge function with the outer loops, since it is in essense a loop inside a loop, so we can
 use loop logic again. This results in a final runtime analysis of $\Theta (n^2log(n))$
 
+## Sources
 
+Assel Aljazwe helped me with some psuedo code after I wrote this 2 other times. It was very helpful for the 
+final product
 
