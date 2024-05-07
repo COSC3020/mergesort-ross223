@@ -45,5 +45,6 @@ use loop logic again. This results in a final runtime analysis of $\Theta (n^2lo
 ## Sources
 
 Assel Aljazwe helped me with some psuedo code after I wrote this 2 other times. It was very helpful for the 
-final product
+final product. Also Zach Renz helped me with the previous attempts and influenced the final product a little
+bit.
 
